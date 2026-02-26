@@ -6,7 +6,6 @@
         Registracija
       </h1>
 
-      <!-- Avatar izbor -->
       <div>
         <p class="text-sm text-slate-400 mb-3">Odaberi avatar</p>
 
@@ -25,7 +24,7 @@
         </div>
       </div>
 
-      <!-- Forma -->
+  
       <form @submit.prevent="register" class="space-y-4">
 
         <input
@@ -152,12 +151,9 @@ const googleRegister = async () => {
     const provider = new GoogleAuthProvider()
     const result = await signInWithPopup(auth, provider)
     const user = result.user
-
-    // Ako user već postoji, nemoj ga prepisivati
     const snapshot = await get(dbRef(db, 'users/' + user.uid))
     if (!snapshot.exists()) {
 
-      // random avatar
       const randomAvatar = avatars.value[
         Math.floor(Math.random() * avatars.value.length)
       ]

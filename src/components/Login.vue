@@ -9,7 +9,7 @@
         <p class="text-slate-400 text-sm">Dobrodošao nazad 👋</p>
       </div>
 
-      <!-- Email Login -->
+
       <form @submit.prevent="login" class="space-y-5">
         <div class="space-y-2">
           <label class="text-sm text-slate-400">Email</label>
@@ -39,14 +39,14 @@
         </button>
       </form>
 
-      <!-- Divider -->
+
       <div class="flex items-center gap-3">
         <div class="flex-1 h-px bg-slate-700"></div>
         <span class="text-slate-500 text-sm">ili</span>
         <div class="flex-1 h-px bg-slate-700"></div>
       </div>
 
-      <!-- Google Login -->
+   
       <button
         @click="googleLogin"
         class="w-full py-3 rounded-xl border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white transition font-semibold"
