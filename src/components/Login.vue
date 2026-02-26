@@ -5,8 +5,8 @@
       class="w-full max-w-md bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl p-8 space-y-6"
     >
       <div class="text-center space-y-2">
-        <h1 class="text-3xl font-bold text-blue-500">Prijava</h1>
-        <p class="text-slate-400 text-sm">Dobrodošao nazad 👋</p>
+        <h1 class="text-3xl font-bold text-blue-500">LogIn</h1>
+        <p class="text-slate-400 text-sm">Welcome back 👋</p>
       </div>
 
 
@@ -22,7 +22,7 @@
         </div>
 
         <div class="space-y-2">
-          <label class="text-sm text-slate-400">Lozinka</label>
+          <label class="text-sm text-slate-400">Password</label>
           <input
             v-model="password"
             type="password"
@@ -35,14 +35,14 @@
           type="submit"
           class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold text-white shadow-lg shadow-blue-600/30"
         >
-          Prijavi se
+          Login
         </button>
       </form>
 
 
       <div class="flex items-center gap-3">
         <div class="flex-1 h-px bg-slate-700"></div>
-        <span class="text-slate-500 text-sm">ili</span>
+        <span class="text-slate-500 text-sm">OR</span>
         <div class="flex-1 h-px bg-slate-700"></div>
       </div>
 
@@ -51,15 +51,15 @@
         @click="googleLogin"
         class="w-full py-3 rounded-xl border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white transition font-semibold"
       >
-        Nastavi sa Google
+        Continue with Google
       </button>
       <p class="text-center text-sm text-slate-500">
-  Nemaš račun?
+ Don't have an account?
   <span
     @click="router.push('/register')"
     class="text-blue-500 cursor-pointer hover:underline"
   >
-    Registriraj se
+    Register
   </span>
 </p>
     </div>

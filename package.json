@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.5.1",
     "firebase": "^12.9.0",
     "sweetalert2": "^11.26.20",
     "vue": "^3.5.25",
+    "vue-chartjs": "^5.3.3",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
