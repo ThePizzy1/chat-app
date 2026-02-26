@@ -130,7 +130,7 @@ const selectAvatar = (avatar) => {
 }
 
 const validatePassword = (pwd) => {
-
+ 
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/
   return regex.test(pwd)
 }
@@ -140,17 +140,17 @@ const register = async () => {
   passwordVerifyError.value = ''
 
   if (!displayName.value || !email.value || !password.value || !passwordVerify.value || !selectedAvatar.value) {
-    Swal.fire("Greška", "Ispuni sva polja i odaberi avatar", "warning")
+    Swal.fire("Error", "Please fill in all fields and select an avatar", "warning")
     return
   }
 
   if (!validatePassword(password.value)) {
-    passwordError.value = 'Lozinka mora imati 8+ znakova, veliko i malo slovo, broj i simbol.'
+    passwordError.value = 'Password must have 8+ characters, uppercase, lowercase, number, and symbol.'
     return
   }
 
   if (password.value !== passwordVerify.value) {
-    passwordVerifyError.value = 'Lozinke se ne podudaraju.'
+    passwordVerifyError.value = 'Passwords do not match.'
     return
   }
 
@@ -167,14 +167,14 @@ const register = async () => {
       createdAt: Date.now()
     })
 
-    Swal.fire("Uspjeh", "Račun kreiran!", "success")
+    Swal.fire("Success", "Account created!", "success")
     router.push('/messags')
 
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
-      Swal.fire("Greška", "Korisnik s tim emailom već postoji.", "error")
+      Swal.fire("Error", "A user with this email already exists.", "error")
     } else {
-      Swal.fire("Greška", error.message, "error")
+      Swal.fire("Error", error.message, "error")
     }
   }
 }
@@ -202,7 +202,7 @@ const googleRegister = async () => {
     router.push('/messags')
 
   } catch (error) {
-    Swal.fire("Greška", error.message, "error")
+    Swal.fire("Error", error.message, "error")
   }
 }
 </script>

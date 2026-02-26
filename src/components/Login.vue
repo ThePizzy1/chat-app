@@ -93,8 +93,8 @@ const login = async () => {
   if (!email.value || !password.value) {
     Swal.fire({
       icon: 'warning',
-      title: 'Nedostaju podaci',
-      text: 'Unesi email i lozinku'
+      title: 'Missing Data',
+      text: 'Please enter your email and password'
     })
     return
   }
@@ -103,7 +103,7 @@ const login = async () => {
     await signInWithEmailAndPassword(auth, email.value, password.value)
     Swal.fire({
       icon: 'success',
-      title: 'Uspješna prijava!',
+      title: 'Login Successful!',
       timer: 1500,
       showConfirmButton: false
     })
@@ -111,7 +111,7 @@ const login = async () => {
   } catch (error) {
     Swal.fire({
       icon: 'error',
-      title: 'Greška',
+      title: 'Error',
       text: error.message
     })
   }
@@ -123,7 +123,7 @@ const googleLogin = async () => {
     await signInWithPopup(auth, provider)
     Swal.fire({
       icon: 'success',
-      title: 'Google prijava uspješna!',
+      title: 'Google Login Successful!',
       timer: 1500,
       showConfirmButton: false
     })
@@ -131,7 +131,7 @@ const googleLogin = async () => {
   } catch (error) {
     Swal.fire({
       icon: 'error',
-      title: 'Google prijava neuspješna',
+      title: 'Google Login Failed',
       text: error.message
     })
   }
