@@ -213,8 +213,10 @@ const selectedNewAvatar = ref(null)
 const chartCanvas = ref(null)
 let chartInstance = null
 let messagesRef = null
+let previousMessageCount = 0
 
-
+const messageSound = new Audio('/notification.mp3')//C:\Users\Korisnik\Documents\Message\chat-app\src\notification.mp3
+messageSound.volume = 0.7
 
 onMounted(() => {
 
@@ -264,15 +266,31 @@ const loadMessages = (otherUid) => {
 
   messagesRef = dbRef(db, 'messages/' + conversationId)
 
-  onValue(messagesRef, async (snapshot) => {
-    const data = snapshot.val()
-    messages.value = data ? Object.values(data) : []
+onValue(messagesRef, async (snapshot) => {
+  const data = snapshot.val()
+  const newMessages = data ? Object.values(data) : []
 
-    if (showGraph.value) {
-      await nextTick()
-      buildChart()
+
+  if (
+    newMessages.length > previousMessageCount &&
+    previousMessageCount !== 0
+  ) {
+    const lastMessage = newMessages[newMessages.length - 1]
+
+
+    if (lastMessage.senderId !== currentUser.value.uid) {
+      messageSound.play()
     }
-  })
+  }
+
+  previousMessageCount = newMessages.length
+  messages.value = newMessages
+
+  if (showGraph.value) {
+    await nextTick()
+    buildChart()
+  }
+})
 }
 
 const sendMessage = async () => {
