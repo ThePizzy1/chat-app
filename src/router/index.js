@@ -4,8 +4,7 @@ import { getAuth } from "firebase/auth"
 const routes = [
   { path: '/', name: 'Login', component: () => import('../components/Login.vue') },
   { path: '/register', name: 'Register', component: () => import('../components/Register.vue') },
-  { path: '/messags', name: 'Messags', component: () => import('../components/Messags.vue') },
-  { path: '/profile', name: 'Profile', component: () => import('../components/Profile.vue') }
+  { path: '/messags', name: 'Messags', component: () => import('../components/Messags.vue') }
 ]
 
 const router = createRouter({
